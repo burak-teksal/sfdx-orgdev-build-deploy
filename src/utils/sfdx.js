@@ -64,14 +64,14 @@ let deploy = function (deploy){
         var argsDeploy = ['force:source:deploy', '--wait', deploy.deployWaitTime, '--manifest', manifestTmp, '--targetusername', 'sfdc', '--json'];
 
         if(deploy.checkonly){
-            core.info("===== CHECH ONLY ====");
+            core.info("===== CHECK ONLY ====");
             argsDeploy.push('--checkonly');
         }
 
         if(deploy.testlevel == "RunSpecifiedTests"){
             testClassesTmp = getApexTestClass(manifestTmp, deploy.defaultSourcePath+'/classes', deploy.defaultTestClass);
 
-            core.info("las clases son : "  + testClassesTmp);
+            core.info("Test classes : "  + testClassesTmp);
             
             if(testClassesTmp){
                 argsDeploy.push("--testlevel");
